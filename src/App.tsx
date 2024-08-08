@@ -9,7 +9,7 @@ import CV from './components/CV/CV'
 const App: React.FC = () => {
     return (
         <Router>
-            <div className='flex'>
+            <div className='flex bg-background'>
                 <Sidebar />
                 <div className='flex-grow p-4'>
                     <Routes>

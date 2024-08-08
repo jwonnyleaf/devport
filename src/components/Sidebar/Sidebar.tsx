@@ -3,32 +3,32 @@ import { Link } from 'react-router-dom'
 
 const Sidebar: React.FC = () => {
     return (
-        <div className='w-64 h-screen sticky top-0 bg-background p-8'>
+        <div className='w-64 h-screen sticky top-0 bg-background border-r-2 border-gray-200 p-8'>
             <div className='mb-8'>
-                /* Links to / */
                 <Link to='/' className=''>
-                    <img src='/images/logo.png' alt='Logo' className='mb-4 w-1/4' />
+                    <img src='/images/logo.png' alt='Logo' className='mb-8 w-1/4' />
                 </Link>
-                <nav className='text-2xl'>
+                <nav className='font-opensans font-semibold text-3xl text-primary'>
                     <ul>
                         <li className='mb-4'>
-                            <Link to='/about' className='text-gray-800 hover:text-black'>
+                            <Link to='/about' className='hover:text-secondary'>
                                 About
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link to='/blog' className='text-gray-800 hover:text-black'>
+                            <Link to='/blog' className='hover:text-secondary'>
                                 Blog
                             </Link>
                         </li>
                         <li className=''>
-                            <Link to='/cv' className='text-gray-800 hover:text-black'>
+                            <Link to='/cv' className='hover:text-secondary'>
                                 CV
                             </Link>
                         </li>
                     </ul>
                 </nav>
             </div>
+            <hr className='border-gray-300 my-12 -mx-8' />
             <div className='mb-8'>
                 <h4 className='text-gray-500 text-base mb-2'>PROJECTS</h4>
                 <ul>

@@ -3,11 +3,15 @@ export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
+            fontFamily: {
+                opensans: ['"Open Sans"', 'sans-serif'],
+            },
             colors: {
-                primary: '#55505C',
+                primary: '#3A373D',
+                secondary: '#898390',
                 background: '#FCFAFA',
             },
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/typography')],
 }
