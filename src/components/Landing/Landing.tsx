@@ -7,7 +7,7 @@ const Landing: React.FC = () => {
             <p className='text-secondary text-2xl font-montserrat font-bold'>
                 Howdy howdy, <span className='font-bold'>chào mừng!</span>
             </p>
-            <h1 className='text-secondary text-6xl font-montserrat font-bold'>
+            <h1 className='text-secondary text-5xl font-montserrat font-bold'>
                 I am a developer designing innovative software solutions at Texas A&M University. I
                 am passionate about creating software that is both functional and beautiful.
                 Previously, at Halliburton. I am currently seeking a full-time Software Engineering
