@@ -11,7 +11,7 @@ const App: React.FC = () => {
         <Router>
             <div className='flex bg-background'>
                 <Sidebar />
-                <div className='flex-grow p-4'>
+                <div className='flex-grow px-24 py-10'>
                     <Routes>
                         <Route path='/' element={<Landing />} />
                         <Route path='/about' element={<About />} />

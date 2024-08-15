@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 const Sidebar: React.FC = () => {
     return (
-        <div className='w-64 h-screen sticky top-0 bg-background border-r-2 border-gray-200 p-8'>
+        <div className='w-1/2 h-screen sticky top-0 bg-background border-r-2 border-gray-200 p-8'>
             <div className='mb-8'>
                 <Link to='/' className=''>
                     <img src='/images/logo.png' alt='Logo' className='mb-8 w-1/4' />
                 </Link>
-                <nav className='font-opensans font-semibold text-3xl text-primary'>
+                <nav className='font-opensans font-bold text-3xl text-primary'>
                     <ul>
                         <li className='mb-4'>
                             <Link to='/about' className='hover:text-secondary'>
@@ -30,8 +30,8 @@ const Sidebar: React.FC = () => {
             </div>
             <hr className='border-gray-300 my-12 -mx-8' />
             <div className='mb-8'>
-                <h4 className='text-gray-500 text-base mb-2'>PROJECTS</h4>
-                <ul>
+                <h4 className='text-gray-500 text-lg mb-2'>PROJECTS</h4>
+                <ul className='text-base'>
                     <li className='mb-1'>
                         <Link to='/' className='text-gray-800 hover:text-black'>
                             Project 1
@@ -45,8 +45,8 @@ const Sidebar: React.FC = () => {
                 </ul>
             </div>
             <div>
-                <h4 className='text-gray-500 text-sm mb-2'>CONTACT</h4>
-                <ul>
+                <h4 className='text-gray-500 text-lg mb-2'>CONTACT</h4>
+                <ul className='text-base'>
                     <li className='mb-1'>
                         <a
                             href='mailto:jle.inquiries@gmail.com'

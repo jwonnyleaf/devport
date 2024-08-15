@@ -5,10 +5,11 @@ export default {
         extend: {
             fontFamily: {
                 opensans: ['"Open Sans"', 'sans-serif'],
+                montserrat: ['"Montserrat"', 'sans-serif'],
             },
             colors: {
                 primary: '#3A373D',
-                secondary: '#898390',
+                secondary: '#726d79',
                 background: '#FCFAFA',
             },
         },
