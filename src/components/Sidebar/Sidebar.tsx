@@ -11,17 +11,17 @@ const Sidebar: React.FC = () => {
                 <nav className='font-opensans font-bold text-3xl text-primary'>
                     <ul>
                         <li className='mb-4'>
-                            <Link to='/about' className='hover:text-secondary'>
+                            <Link to='/' className='hover:text-secondary'>
                                 About
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link to='/blog' className='hover:text-secondary'>
+                            <Link to='/' className='hover:text-secondary'>
                                 Blog
                             </Link>
                         </li>
                         <li className=''>
-                            <Link to='/cv' className='hover:text-secondary'>
+                            <Link to='/' className='hover:text-secondary'>
                                 CV
                             </Link>
                         </li>
@@ -53,6 +53,15 @@ const Sidebar: React.FC = () => {
                             className='text-gray-800 hover:text-black'
                         >
                             Mail
+                        </a>
+                    </li>
+                    <li className='mb-1'>
+                        <a
+                            href='https://github.com/jwonnyleaf'
+                            target='_blank'
+                            className='text-gray-800 hover:text-black'
+                        >
+                            GitHub
                         </a>
                     </li>
                     <li className='mb-1'>
