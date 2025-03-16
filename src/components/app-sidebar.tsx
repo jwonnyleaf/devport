@@ -2,19 +2,37 @@
 
 import { motion } from 'framer-motion';
 import { Github, Instagram, Linkedin } from 'lucide-react';
+import { useState } from 'react';
 
 export const AppSidebar = () => {
+  const [rotations, setRotations] = useState(
+    Array(3)
+      .fill(0)
+      .map(() => Math.random() * 30 - 15)
+  );
+
+  const randomizeRotation = (index: number) => {
+    setRotations((prev) =>
+      prev.map((rotation, i) =>
+        i === index ? Math.random() * 30 - 15 : rotation
+      )
+    );
+  };
+
   return (
     <div className="w-[48%] h-screen py-24">
       <div className="h-full flex flex-col justify-between">
         {/* Sidebar Header */}
         <header>
-          <h1 className="text-5xl font-bold text-primary">
+          <h1 className="text-5xl font-bold tracking-wide text-primary">
             <a>Johnny Le</a>
           </h1>
           <h2 className="mt-3 text-xl text-primary">
             Full Stack Software Engineer
           </h2>
+          <p className="mt-5 max-w-3xs leading-normal italic text-primary-foreground">
+            Turning complexity into seamless digital experiences.
+          </p>
         </header>
         {/* Social Links */}
         <ul className="flex gap-6 ml-4 text-primary-foreground">
@@ -27,10 +45,11 @@ export const AppSidebar = () => {
               key={index}
               whileHover={{
                 scale: 1.4,
-                rotate: Math.random() * 20 - 10,
+                rotate: rotations[index],
               }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300 }}
+              onMouseEnter={() => randomizeRotation(index)}
             >
               <a href={href} target="_blank" className="hover:text-primary">
                 <Icon size={32} />
