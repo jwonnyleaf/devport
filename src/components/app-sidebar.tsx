@@ -19,15 +19,15 @@ export const AppSidebar = () => {
         {/* Social Links */}
         <ul className="flex gap-6 ml-4 text-primary-foreground">
           {[
-            { href: '#', Icon: Github },
-            { href: '#', Icon: Linkedin },
-            { href: '#', Icon: Instagram },
+            { href: 'https://github.com/jwonnyleaf/', Icon: Github },
+            { href: 'https://www.linkedin.com/in/jwonnyleaf/', Icon: Linkedin },
+            { href: 'https://instagram.com/jwonnyleaf', Icon: Instagram },
           ].map(({ href, Icon }, index) => (
             <motion.div
               key={index}
               whileHover={{
                 scale: 1.4,
-                rotate: Math.random() > 0.5 ? 5 : -5,
+                rotate: Math.random() * 20 - 10,
               }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300 }}
