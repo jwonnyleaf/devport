@@ -72,8 +72,8 @@ export const AppSidebar = () => {
   };
 
   return (
-    <div className="fixed h-screen py-24 z-10">
-      <div className="h-full flex flex-col justify-between">
+    <div className="lg:fixed lg:h-screen py-24 z-10">
+      <div className="h-full lg:flex flex-col justify-between">
         {/* Sidebar Header */}
         <header>
           <h1 className="text-5xl font-bold tracking-wide text-primary">
@@ -87,7 +87,7 @@ export const AppSidebar = () => {
           </p>
         </header>
         {/* Social Links */}
-        <ul className="flex gap-6 ml-4 text-primary-foreground">
+        <ul className="flex gap-6 ml-4 mt-8 text-primary-foreground">
           {[
             { href: 'https://github.com/jwonnyleaf/', Icon: Github },
             { href: 'https://www.linkedin.com/in/jwonnyleaf/', Icon: Linkedin },
@@ -96,7 +96,7 @@ export const AppSidebar = () => {
             <motion.div
               key={index}
               whileHover={{
-                scale: 1.4,
+                scale: 1.3,
                 rotate: rotations[index],
               }}
               whileTap={{ scale: 0.9 }}

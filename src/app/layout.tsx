@@ -22,8 +22,8 @@ export default function RootLayout({
       <body className={`bg-primary-bg ${inter.className} min-h-screen`}>
         <AlertProvider>
           <FallingSnow />
-          <div className="w-full flex max-w-screen-xl mx-auto px-6 justify-between gap-4">
-            <div className="w-[48%]">
+          <div className="w-full flex flex-col lg:flex-row max-w-screen-xl mx-auto px-6 justify-between gap-4">
+            <div className="lg:w-[42%]">
               <AppSidebar />
             </div>
             <main className="flex-1 z-10">{children}</main>
