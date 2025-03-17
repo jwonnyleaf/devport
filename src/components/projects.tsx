@@ -5,10 +5,10 @@ import { projects } from '@/data/projectsData'; // Import project list
 
 export const Projects = () => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       {projects.map((project) => (
         <div key={project.id} className="group">
-          <Card className="bg-primary-bg border-none shadow-none hover:bg-primary-bg-hover hover:shadow-xl transition-colors duration-300 ease-in-out px-6 flex gap-4">
+          <Card className="bg-primary-bg border-none shadow-none hover:bg-primary-bg-hover hover:shadow-sm transition-colors duration-300 ease-in px-6 flex gap-4">
             {/* Left Side - Image Container */}
             <div className="w-[180px] h-[100px] rounded-sm border-2 border-primary-foreground overflow-hidden flex-shrink-0">
               <Image
@@ -24,7 +24,7 @@ export const Projects = () => {
             <CardContent className="p-0 flex-1">
               <a
                 href={project.link}
-                className="flex items-center gap-1 text-lg font-semibold text-primary group-hover:text-primary-alt transition"
+                className="flex items-center gap-1 text-base text-primary group-hover:text-primary-alt transition"
               >
                 {project.title}
                 <ArrowUpRight size={16} />

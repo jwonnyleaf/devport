@@ -20,7 +20,7 @@ export const AppSidebar = () => {
   };
 
   return (
-    <div className="w-[48%] h-screen py-24">
+    <div className="fixed w-[48%] h-screen py-24">
       <div className="h-full flex flex-col justify-between">
         {/* Sidebar Header */}
         <header>

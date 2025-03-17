@@ -42,7 +42,7 @@ export const FallingSnow = () => {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 w-full h-screen pointer-events-none overflow-hidden">
+    <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none overflow-hidden">
       {snowflakes.map((flake) => (
         <motion.div
           key={flake.id}

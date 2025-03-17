@@ -24,7 +24,7 @@ export default function RootLayout({
         <FallingSnow />
         <div className="flex justify-between gap-4">
           <AppSidebar />
-          <main className="flex-1 z-10">{children}</main>
+          <main className="ml-[48%] flex-1 z-10">{children}</main>
         </div>
       </body>
     </html>
