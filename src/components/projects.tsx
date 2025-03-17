@@ -29,7 +29,7 @@ export const Projects = () => {
                 {project.title}
                 <ArrowUpRight size={16} />
               </a>
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-primary-foreground text-base mt-1">
                 {project.description}
               </p>
 

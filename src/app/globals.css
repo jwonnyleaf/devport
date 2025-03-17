@@ -2,15 +2,13 @@
 
 @plugin 'tailwindcss-animate';
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-primary-bg: #141e1a;
   --color-primary-bg-foreground: #385453;
   --color-primary-bg-hover: #293d31;
   --color-primary: #d0d9dd;
   --color-primary-alt: #a4e1bb;
-  --color-primary-foreground: #7c8480;
+  --color-primary-foreground: #99a1af;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

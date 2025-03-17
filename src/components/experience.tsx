@@ -10,7 +10,9 @@ export const Experience = () => {
           <Card className="bg-primary-bg border-none shadow-none hover:bg-primary-bg-hover hover:shadow-sm transition-colors duration-300 ease-in px-6 flex flex-col sm:flex-row items-start gap-4">
             {/* Left Side - Date */}
             <div className="w-[180px] flex-shrink-0 self-start">
-              <p className="text-sm text-gray-400">{experience.date}</p>
+              <p className="text-sm text-primary-foreground">
+                {experience.date}
+              </p>
             </div>
 
             {/* Right Side - Job Title, Description & Tech Stack */}
@@ -24,7 +26,7 @@ export const Experience = () => {
               </h3>
 
               {experience.description && (
-                <p className="text-gray-400 text-base leading-relaxed mt-1">
+                <p className="text-primary-foreground text-base leading-relaxed mt-1">
                   {experience.description}
                 </p>
               )}
