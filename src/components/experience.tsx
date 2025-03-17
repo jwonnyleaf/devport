@@ -7,7 +7,7 @@ export const Experience = () => {
     <div className="flex flex-col gap-4">
       {experiences.map((experience) => (
         <div key={experience.id} className="group">
-          <Card className="bg-primary-bg border-none shadow-none hover:bg-primary-bg-hover hover:shadow-sm transition-colors duration-300 ease-in px-6 flex flex-col sm:flex-row items-start gap-6">
+          <Card className="bg-primary-bg border-none shadow-none hover:bg-primary-bg-hover hover:shadow-sm transition-colors duration-300 ease-in px-6 flex flex-col sm:flex-row items-start gap-4">
             {/* Left Side - Date */}
             <div className="w-[180px] flex-shrink-0 self-start">
               <p className="text-sm text-gray-400">{experience.date}</p>
