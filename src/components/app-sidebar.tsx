@@ -1,15 +1,40 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Instagram, Linkedin } from 'lucide-react';
+import {
+  CheckCircle,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  XCircle,
+} from 'lucide-react';
 import { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
+import { Button } from './ui/button';
+import { Label } from './ui/label';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 export const AppSidebar = () => {
   const [rotations, setRotations] = useState(
-    Array(3)
+    Array(4)
       .fill(0)
       .map(() => Math.random() * 30 - 15)
   );
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertType, setAlertType] = useState<'success' | 'error' | null>(null);
 
   const randomizeRotation = (index: number) => {
     setRotations((prev) =>
@@ -19,8 +44,49 @@ export const AppSidebar = () => {
     );
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xblglzea', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+          Object.fromEntries(new FormData(e.target as HTMLFormElement))
+        ),
+      });
+
+      if (response.ok) {
+        setIsModalOpen(false);
+        setAlertMessage(
+          'Your message has been successfully sent. I will get back to you soon!'
+        );
+        setAlertType('success');
+      } else {
+        setAlertMessage('Something went wrong. Please try again.');
+        setAlertType('error');
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      setAlertMessage(
+        'Error sending message. Please check your connection and try again.'
+      );
+      setAlertType('error');
+    }
+
+    setLoading(false);
+
+    setTimeout(() => {
+      setAlertMessage(null);
+      setAlertType(null);
+    }, 5000);
+  };
+
   return (
-    <div className="fixed w-[48%] h-screen py-24">
+    <div className="fixed h-screen py-24 z-10">
       <div className="h-full flex flex-col justify-between">
         {/* Sidebar Header */}
         <header>
@@ -56,7 +122,113 @@ export const AppSidebar = () => {
               </a>
             </motion.div>
           ))}
+          <motion.div
+            whileHover={{ scale: 1.4, rotate: rotations[3] }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            onMouseEnter={() => randomizeRotation(3)}
+          >
+            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+              <DialogTrigger asChild>
+                <Mail size={32} className="hover:text-primary" />
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[500px]">
+                <DialogHeader>
+                  <DialogTitle>Contact Johnny Le</DialogTitle>
+                </DialogHeader>
+
+                <form
+                  action="https://formspree.io/f/xblglzea"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-4 mt-4"
+                >
+                  {/* Full Name */}
+                  <div className="grid gap-2">
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="John Doe"
+                      required
+                    />
+                  </div>
+
+                  {/* Email Address */}
+                  <div className="grid gap-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+
+                  {/* Subject */}
+                  <div className="grid gap-2">
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      placeholder="Project Inquiry, Collaboration, etc."
+                      required
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div className="grid gap-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Write your message here..."
+                      required
+                      className="h-48"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <DialogFooter>
+                    <Button
+                      type="submit"
+                      variant="default"
+                      className="w-full"
+                      disabled={loading}
+                    >
+                      {loading ? 'Sending...' : 'Send Message'}
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </motion.div>
         </ul>
+        {alertMessage && (
+          <div className="fixed bottom-5 right-5 w-80 z-[9999] shadow-lg">
+            <Alert
+              variant={alertType === 'success' ? 'default' : 'destructive'}
+              className={`border ${
+                alertType === 'success'
+                  ? 'bg-green-100 border-primary-foreground text-green-800'
+                  : 'bg-red-100 border-primary-foreground text-red-800'
+              } shadow-xl`}
+            >
+              {alertType === 'success' ? (
+                <CheckCircle className="h-5 w-5 text-green-600" />
+              ) : (
+                <XCircle className="h-5 w-5 text-red-600" />
+              )}
+              <AlertTitle>
+                {alertType === 'success' ? 'Message Sent!' : 'Error'}
+              </AlertTitle>
+              <AlertDescription>{alertMessage}</AlertDescription>
+            </Alert>
+          </div>
+        )}
       </div>
     </div>
   );
