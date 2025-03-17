@@ -15,9 +15,10 @@ export const Experience = () => {
 
             {/* Right Side - Job Title, Description & Tech Stack */}
             <CardContent className="p-0 flex-1 self-start">
-              <h3 className="text-base text-primary group-hover:text-primary-alt transition leading-tight">
-                {experience.title} <span className="mx-2">‣</span>{' '}
+              <h3 className="flex items-center gap-1 text-base text-primary group-hover:text-primary-alt transition leading-tight">
+                {experience.title} <span className="mx-1">‣</span>{' '}
                 {experience.company}
+                <ArrowUpRight size={16} />
               </h3>
 
               {experience.description && (
