@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { AppSidebar } from '@/components/app-sidebar';
 import { FallingSnow } from '@/components/falling-snow';
+import { AlertProvider } from '@/components/alert-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,13 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`bg-primary-bg ${inter.className} min-h-screen`}>
-        <FallingSnow />
-        <div className="w-full flex max-w-screen-xl mx-auto px-6 justify-between gap-4">
-          <div className="w-[48%]">
-            <AppSidebar />
+        <AlertProvider>
+          <FallingSnow />
+          <div className="w-full flex max-w-screen-xl mx-auto px-6 justify-between gap-4">
+            <div className="w-[48%]">
+              <AppSidebar />
+            </div>
+            <main className="flex-1 z-10">{children}</main>
           </div>
-          <main className="flex-1 z-10">{children}</main>
-        </div>
+        </AlertProvider>
       </body>
     </html>
   );

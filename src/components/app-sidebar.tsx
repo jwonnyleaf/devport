@@ -1,14 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  CheckCircle,
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  XCircle,
-} from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
 import {
   Dialog,
@@ -22,9 +15,10 @@ import { Button } from './ui/button';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Alert, AlertDescription, AlertTitle } from './ui/alert';
+import { useAlert } from './alert-provider';
 
 export const AppSidebar = () => {
+  const triggerAlert = useAlert();
   const [rotations, setRotations] = useState(
     Array(4)
       .fill(0)
@@ -33,8 +27,6 @@ export const AppSidebar = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [alertMessage, setAlertMessage] = useState<string | null>(null);
-  const [alertType, setAlertType] = useState<'success' | 'error' | null>(null);
 
   const randomizeRotation = (index: number) => {
     setRotations((prev) =>
@@ -61,28 +53,22 @@ export const AppSidebar = () => {
 
       if (response.ok) {
         setIsModalOpen(false);
-        setAlertMessage(
-          'Your message has been successfully sent. I will get back to you soon!'
+        triggerAlert(
+          'Your message has been successfully sent. I will get back to you soon!',
+          'success'
         );
-        setAlertType('success');
       } else {
-        setAlertMessage('Something went wrong. Please try again.');
-        setAlertType('error');
+        triggerAlert('Something went wrong. Please try again.', 'error');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      setAlertMessage(
-        'Error sending message. Please check your connection and try again.'
+      triggerAlert(
+        'Error sending message. Please check your connection and try again.',
+        'error'
       );
-      setAlertType('error');
     }
 
     setLoading(false);
-
-    setTimeout(() => {
-      setAlertMessage(null);
-      setAlertType(null);
-    }, 5000);
   };
 
   return (
@@ -207,28 +193,6 @@ export const AppSidebar = () => {
             </Dialog>
           </motion.div>
         </ul>
-        {alertMessage && (
-          <div className="fixed bottom-5 right-5 w-80 z-[9999] shadow-lg">
-            <Alert
-              variant={alertType === 'success' ? 'default' : 'destructive'}
-              className={`border ${
-                alertType === 'success'
-                  ? 'bg-green-100 border-primary-foreground text-green-800'
-                  : 'bg-red-100 border-primary-foreground text-red-800'
-              } shadow-xl`}
-            >
-              {alertType === 'success' ? (
-                <CheckCircle className="h-5 w-5 text-green-600" />
-              ) : (
-                <XCircle className="h-5 w-5 text-red-600" />
-              )}
-              <AlertTitle>
-                {alertType === 'success' ? 'Message Sent!' : 'Error'}
-              </AlertTitle>
-              <AlertDescription>{alertMessage}</AlertDescription>
-            </Alert>
-          </div>
-        )}
       </div>
     </div>
   );
