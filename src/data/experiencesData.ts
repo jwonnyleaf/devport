@@ -4,7 +4,7 @@ export const experiences = [
     title: 'Software Consultant',
     company: 'Pariveda',
     date: 'PRESENT',
-    description: '',
+    description: 'Incoming...',
     technologies: [],
   },
   {
@@ -12,7 +12,8 @@ export const experiences = [
     title: 'Software Developer II',
     company: 'Centennial Arts',
     date: '2024 - PRESENT',
-    description: '',
+    description:
+      'Implemented PowerShell scripting solutions to optimize development processes. Conducted thorough analysis of codebase, identified areas for improvement, and successfully executed code refactoring initiatives.',
     technologies: ['Shell', 'Linux'],
   },
   {
