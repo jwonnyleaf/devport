@@ -18,10 +18,12 @@ export const Experience = () => {
             {/* Right Side - Job Title, Description & Tech Stack */}
             <CardContent className="p-0 flex-1 self-start">
               <h3 className="text-base text-primary group-hover:text-primary-alt transition leading-tight">
-                <span className="inline-flex items-center gap-1 whitespace-nowrap">
-                  {experience.title} <span className="mx-1">‣</span>{' '}
-                  {experience.company}
-                  <ArrowUpRight size={16} />
+                <span className="flex flex-col sm:flex-row sm:items-center gap-1">
+                  <span>{experience.title} ‣</span>
+                  <span className="flex items-center gap-1">
+                    {experience.company}
+                    <ArrowUpRight size={16} />
+                  </span>
                 </span>
               </h3>
 

@@ -16,6 +16,7 @@ import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useAlert } from './alert-provider';
+import { PlantIcon } from './plant-icon';
 
 export const AppSidebar = () => {
   const triggerAlert = useAlert();
@@ -76,8 +77,9 @@ export const AppSidebar = () => {
       <div className="h-full lg:flex flex-col justify-between">
         {/* Sidebar Header */}
         <header>
-          <h1 className="text-5xl font-bold tracking-wide text-primary">
+          <h1 className="flex gap-5 text-5xl font-bold tracking-wide text-primary">
             <a>Johnny Le</a>
+            <PlantIcon />
           </h1>
           <h2 className="mt-3 text-xl text-primary">
             Full Stack Software Engineer

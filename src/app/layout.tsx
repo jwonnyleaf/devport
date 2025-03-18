@@ -8,8 +8,11 @@ import { AlertProvider } from '@/components/alert-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Johnny | Software Engineer',
-  description: 'Crafting experiences with technology and design.',
+  title: 'Johnny Le',
+  description: 'Turning complexity into seamless digital experiences.',
+  icons: {
+    icon: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
