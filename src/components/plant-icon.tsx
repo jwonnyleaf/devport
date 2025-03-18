@@ -10,14 +10,14 @@ export const PlantIcon = () => {
 
     const triggerAnimation = () => {
       controls.start({
-        rotate: [0, Math.random() * 10 - 5, Math.random() * 10 - 5, 0],
+        rotate: [0, 8, -8, 0],
         transition: {
-          duration: 3 + Math.random() * 2,
+          duration: 3.5,
           ease: 'easeInOut',
         },
       });
 
-      const randomDelay = Math.random() * 7000 + 1000;
+      const randomDelay = Math.random() * 7000 + 5000;
       timeoutId = setTimeout(triggerAnimation, randomDelay);
     };
 
